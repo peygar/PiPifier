@@ -86,7 +86,7 @@ function addYouTubeButton() {
     buttonImage.width = 22;
     buttonImage.height = 36;
     button.appendChild(buttonImage);
-    
+
     document.getElementsByClassName("ytp-right-controls")[0].appendChild(button);
 }
 
@@ -156,12 +156,12 @@ function addNetflixButton(timeOutCounter) {
     buttonImage.style.verticalAlign = "middle";
     buttonImage.style.maxHeight = "40%";
     button.appendChild(buttonImage);
-    var playerStatusDiv = document.getElementsByClassName("player-status")[0];
+    var playerStatusDiv = document.getElementsByClassName("PlayerControls--button-control-row")[0];
     if (playerStatusDiv == null && timeOutCounter < 3) {
         //this is needed because the div is sometimes not reachable on the first load
         //also necessary to count up and stop at some time to avoid endless loop on main netflix page
         setTimeout(function() {addNetflixButton(timeOutCounter+1);}, 3000);
         return;
     }
-    playerStatusDiv.insertBefore(button, playerStatusDiv.firstChild);
+    playerStatusDiv.insertBefore(button, playerStatusDiv.children[2]);
 }
